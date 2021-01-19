@@ -33,6 +33,7 @@ public class AccountController {
 	public ResponseEntity<List<Account>> getAccounts()
 	{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = (String) auth.getPrincipal();
 		return ResponseEntity.ok(accServ.getAccounts());
 	}
 	
