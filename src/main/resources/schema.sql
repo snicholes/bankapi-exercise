@@ -1,3 +1,9 @@
+drop table if exists account_type cascade;
+drop table if exists account_status cascade;
+drop table if exists roles cascade;
+drop table if exists users cascade;
+drop table if exists account cascade;
+
 create table account_type(
 	id serial primary key,
 	type_name varchar unique not null
