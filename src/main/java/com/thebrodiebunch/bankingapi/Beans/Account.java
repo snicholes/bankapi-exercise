@@ -21,8 +21,7 @@ public class Account {
 	@JoinColumn(name = "type_id")
 	private AccountType type;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "owner_id")
+	@Column(name = "owner_id")
 	private Integer ownerId;
 	
 	
