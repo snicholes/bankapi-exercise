@@ -3,7 +3,7 @@ package com.thebrodiebunch.bankingapi.Beans;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name="account_type")
 public class AccountType {
 	
     @Id
@@ -11,7 +11,7 @@ public class AccountType {
 	private int id; // primary key
     
     @Column(nullable=false, unique=true)
-	private String type; // not null, unique
+	private String name; // not null, unique
 
 	AccountType() {}; 
 	public int getId() {
@@ -21,16 +21,16 @@ public class AccountType {
 		this.id = id;
 	}
 	public String getType() {
-		return type;
+		return name;
 	}
 	public void setType(String type) {
-		this.type = type;
+		this.name = type;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -43,10 +43,10 @@ public class AccountType {
 		if (getClass() != obj.getClass())
 			return false;
 		AccountType other = (AccountType) obj;
-		if (type == null) {
-			if (other.type != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!type.equals(other.type))
+		} else if (!name.equals(other.name))
 			return false;
 		if (id != other.id)
 			return false;
@@ -54,7 +54,7 @@ public class AccountType {
 	}
 	@Override
 	public String toString() {
-		return "AccountType [id=" + id + ", type=" + type + "]";
+		return "AccountType [id=" + id + ", type=" + name + "]";
 	}
 
 

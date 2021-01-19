@@ -22,7 +22,7 @@ public class Account {
 	private AccountType type;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ower_id")
+	@JoinColumn(name = "owner_id")
 	private Integer ownerId;
 	
 	

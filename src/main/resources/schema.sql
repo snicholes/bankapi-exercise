@@ -5,12 +5,12 @@ create table account_type(
 
 create table account_status(
 	id serial primary key,
-	status_name varchar unique not null
+	name varchar unique not null
 );
 
 create table roles(
 	id serial primary key,
-	role_name varchar unique not null
+	name varchar unique not null
 );
 
 create table users(
@@ -26,7 +26,7 @@ create table users(
 create table account(
 	id serial primary key,
 	balance double,
-	account_status_id integer references account_status,
-	account_type_id integer references account_type,
+    status_id integer references account_status,
+	type_id integer references account_type,
 	owner_id integer references users
 );

@@ -3,7 +3,7 @@ package com.thebrodiebunch.bankingapi.Beans;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name="account_status")
 public class AccountStatus {
 
 	@Id
@@ -11,7 +11,7 @@ public class AccountStatus {
 	private int id; // primary key
 
 	@Column(nullable=false, unique=true)
-	private String status; // not null, unique
+	private String name; // not null, unique
 
 	AccountStatus() {}
 
@@ -23,20 +23,20 @@ public class AccountStatus {
 		this.id = id;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getName() {
+		return name;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -49,20 +49,21 @@ public class AccountStatus {
 		if (getClass() != obj.getClass())
 			return false;
 		AccountStatus other = (AccountStatus) obj;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
 		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "AccountStatus [id=" + id + ", status=" + status + "]";
-	}; 
-
+		return "AccountStatus [id=" + id + ", name=" + name + "]";
+	}
+	
+	
 
 }

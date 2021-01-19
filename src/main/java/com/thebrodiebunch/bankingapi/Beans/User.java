@@ -14,11 +14,11 @@ public class User {
 	
 	@Column(nullable=false, unique=true)
 	private String username; // not null, unique
-	@Column(nullable=false)
+	@Column(name="passwd", nullable=false)
 	private String password; // not null
-	@Column(nullable=false)
+	@Column(name="first_name", nullable=false)
 	private String firstName; // not null
-	@Column(nullable=false)
+	@Column(name="last_name", nullable=false)
 	private String lastName; // not null
 	@Column(nullable=false)
 	private String email; // not null
