@@ -8,13 +8,6 @@ create table account_status(
 	status_name varchar unique not null
 );
 
-create table account(
-	id serial primary key,
-	balance double,
-	account_status_id integer references account_status,
-	account_type_id integer references account_type
-);
-
 create table roles(
 	id serial primary key,
 	role_name varchar unique not null
@@ -28,4 +21,12 @@ create table users(
 	last_name varchar not null,
 	email varchar not null,
 	role_id integer references roles
+);
+
+create table account(
+	id serial primary key,
+	balance double,
+	account_status_id integer references account_status,
+	account_type_id integer references account_type,
+	owner_id integer references users
 );
